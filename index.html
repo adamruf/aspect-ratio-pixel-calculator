@@ -4,33 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>16:9 Aspect Ratio Pixel Calculator</title>
+  <title>16:9 Pixel Calculator</title>
   <meta description="For any given width, find the height required to maintain a 16:9 aspect ratio.">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
   <style>
+    body {
+      color: rgba(0,0,0,0.8);
+      font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 7rem;
+    }
+
+    p {
+      color: rgba(0,0,0,0.6);
+      font-size: 2rem;
+    }
+
     .form-control--lg {
-      font-size: 50px;
+      font-size: 5rem;
       font-weight: bold;
       height: auto;
     }
 
-    .mg-b-4 {
-      margin-bottom: 4rem;
+    .mg-b-3 {
+      margin-bottom: 3rem;
     }
 
     .mg-b-2 {
       margin-bottom: 2rem;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+      opacity: 0.5;
+      transition: all 0.2s ease-in-out;
+    }
+
+    footer p:hover {
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
     }
   </style>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-offset-1 mg-b-4">
-        <h1>16:9 Aspect Ratio Pixel Calculator</h1>
-        <p>Enter your desired image width and the height required to maintain a 16:9 aspect ratio will be displayed</p>
+      <div class="col-md-8 col-md-offset-2 col-sm-offset-1 mg-b-3">
+        <h1>16:9 Pixel Calculator</h1>
+        <p>Enter a width and get the height required to maintain a 16:9 aspect ratio</p>
       </div>
     </div>
 
@@ -38,7 +64,7 @@
       <div class="row">
         <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-6">
           <div class="form-group">
-            <label for="imgWidth">Image Width</label>
+            <label for="imgWidth">Width</label>
             <input type="number" class="form-control form-control--lg" id="imgWidth" value="600" min="50" max="3840">
           </div>
         </div>
@@ -47,30 +73,30 @@
         </div> -->
         <div class="col-md-2 col-sm-3 col-xs-6">
           <div class="form-group">
-            <label for="imgHeight">Image Height</label>
+            <label for="imgHeight">Height</label>
             <input type="number" class="form-control  form-control--lg" id="imgHeight" readonly>
           </div>
         </div>
       </div>
     </form>
 
+
     <div class="row">
-      <div class="col-md-6 col-md-offset-2 col-sm-offset-1">
+      <div class="col-md-6 col-md-offset-2 col-sm-offset-1 mg-b-3">
         <!-- <label>Example Image <span class="muted"></span></label><br> -->
         <img src="img/example-image.png" alt="Example image" id="exampleImg" class="js-example-img">
       </div>
     </div>
 
-    <!-- <div class="js-img-outside-limits hide">
-      <p>An example image is only shown when <strong>Image Width</strong> is between 50 and 3840</p>
-    </div> -->
 
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>&copy;2017 Adam Ruf</p>
+    <footer>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>&copy;2017 <a href="http://adamruf.com">Adam Ruf</a></p>
+        </div>
       </div>
     </div>
-  </div>
+  </footer>
 
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -88,16 +114,6 @@
 
         $('#imgHeight').val(valueHeight);
         $('.js-example-img').css('width',value + 'px').css('height',valueHeight +'px');
-
-        if (value < 50) {
-            $('.js-example-img').addClass('image--xs');
-        } else if (value > 50) {
-            $('.js-example-img').addClass('image--sm');
-        } else if (value > 1000) {
-            $('.js-example-img').addClass('image--lg');
-        } else if (value > 2000) {
-            $('.js-example-img').addClass('image--xxl');
-        } else $('.js-example-img').addClass('image--md');
       }).keyup();
     });
   </script>
