@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>16:9 Aspect Ratio Pixel Calculator</title>
+  <meta description="For any given width, find the height required to maintain a 16:9 aspect ratio.">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <style>
+    .form-control--lg {
+      font-size: 50px;
+      font-weight: bold;
+      height: auto;
+    }
+
+    .mg-b-4 {
+      margin-bottom: 4rem;
+    }
+
+    .mg-b-2 {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-offset-1 mg-b-4">
+        <h1>16:9 Aspect Ratio Pixel Calculator</h1>
+        <p>Enter your desired image width and the height required to maintain a 16:9 aspect ratio will be displayed</p>
+      </div>
+    </div>
+
+    <form class="mg-b-2">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-6">
+          <div class="form-group">
+            <label for="imgWidth">Image Width</label>
+            <input type="number" class="form-control form-control--lg" id="imgWidth" value="600" min="50" max="3840">
+          </div>
+        </div>
+        <!-- <div class="col-md-1">
+          <p class="text-center" style="font-size: 50px;font-weight: bold;opacity:0.3;vertical-align:middle;">x</p>
+        </div> -->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <div class="form-group">
+            <label for="imgHeight">Image Height</label>
+            <input type="number" class="form-control  form-control--lg" id="imgHeight" readonly>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2 col-sm-offset-1">
+        <!-- <label>Example Image <span class="muted"></span></label><br> -->
+        <img src="img/example-image.png" alt="Example image" id="exampleImg" class="js-example-img">
+      </div>
+    </div>
+
+    <!-- <div class="js-img-outside-limits hide">
+      <p>An example image is only shown when <strong>Image Width</strong> is between 50 and 3840</p>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>&copy;2017 Adam Ruf</p>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script>
+    // jQuery inspired by and adapted from http://size43.com/jqueryVideoTool.html
+
+    $(document).ready(function(){
+
+      $("#imgWidth").on('keyup blur', function () {
+        var value = $(this).val();
+        value *= 1;
+        var valueHeight = Math.round((value/16)*9);
+
+        $('#imgHeight').val(valueHeight);
+        $('.js-example-img').css('width',value + 'px').css('height',valueHeight +'px');
+
+        if (value < 50) {
+            $('.js-example-img').addClass('image--xs');
+        } else if (value > 50) {
+            $('.js-example-img').addClass('image--sm');
+        } else if (value > 1000) {
+            $('.js-example-img').addClass('image--lg');
+        } else if (value > 2000) {
+            $('.js-example-img').addClass('image--xxl');
+        } else $('.js-example-img').addClass('image--md');
+      }).keyup();
+    });
+  </script>
+</body>
+</html>
