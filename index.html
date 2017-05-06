@@ -12,12 +12,15 @@
 
   <style>
     body {
+      background-color: #f1f6f6;
+      background-image: url(img/bg-tile-for-dimension-calculator@2x.png);
+      background-size: 338px;
       color: rgba(0,0,0,0.8);
       font-family: Roboto, Helvetica Neue, Arial, sans-serif;
     }
 
     h1 {
-      font-size: 7rem;
+      font-size: 5rem;
     }
 
     p {
@@ -31,12 +34,20 @@
       height: auto;
     }
 
+    .input--framed {
+      box-shadow: 0 0 0 0.5rem rgba(0,0,0,0.025);
+    }
+
+    .img--framed {
+      box-shadow: 0 0 0 1rem rgba(0,0,0,0.025);
+    }
+
     .mg-b-5 {
       margin-bottom: 5rem;
     }
 
-    .mg-b-3 {
-      margin-bottom: 3rem;
+    .mg-t-3 {
+      margin-top: 3rem;
     }
 
     .mg-b-2 {
@@ -58,27 +69,24 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-sm-offset-1 mg-b-3">
-        <h1>16:9 Pixel Calculator</h1>
+      <div class="col-md-8 col-md-offset-2 col-sm-offset-1 mg-t-3 mg-b-2 text-center">
+        <h1>16:9 Dimensions Calculator</h1>
         <p>Enter a width and get the height required to maintain a 16:9 aspect ratio</p>
       </div>
     </div>
 
     <form class="mg-b-2">
       <div class="row">
-        <div class="col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-6">
+        <div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-6">
           <div class="form-group">
             <label for="imgWidth">Width</label>
-            <input type="number" class="form-control form-control--lg" id="imgWidth" value="600" min="50" max="3840">
+            <input type="number" class="form-control form-control--lg input--framed" id="imgWidth" value="600" min="50" max="3840">
           </div>
         </div>
-        <!-- <div class="col-md-1">
-          <p class="text-center" style="font-size: 50px;font-weight: bold;opacity:0.3;vertical-align:middle;">x</p>
-        </div> -->
-        <div class="col-md-2 col-sm-3 col-xs-6">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
           <div class="form-group">
             <label for="imgHeight">Height</label>
-            <input type="number" class="form-control  form-control--lg" id="imgHeight" readonly>
+            <input type="number" class="form-control  form-control--lg input--framed" id="imgHeight" readonly>
           </div>
         </div>
       </div>
@@ -86,21 +94,21 @@
 
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-2 col-sm-offset-1 mg-b-5">
+      <div class="col-md-8 col-md-offset-2 mg-b-5 text-center">
         <!-- <label>Example Image <span class="muted"></span></label><br> -->
-        <img src="img/example-image.png" alt="Example image" id="exampleImg" class="js-example-img">
+        <img src="img/example-image.png" alt="Example image" id="exampleImg" class="img--framed js-example-img">
       </div>
     </div>
 
 
     <footer>
       <div class="row">
-        <div class="col-md-10 col-md-offset-2 col-sm-offset-1">
+        <div class="col-md-12 text-center">
           <p>&copy;2017 <a href="http://adamruf.com">Adam Ruf</a></p>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
