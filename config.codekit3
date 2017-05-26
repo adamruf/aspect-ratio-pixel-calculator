@@ -9,14 +9,14 @@
 	],
 "creatorBuild": "25813",
 "files": {
-	"\/img\/bg-tile-for-dimension-calculator.png": {
+	"\/img\/16-9-dimensions-calculator.png": {
 		"ft": 32768,
-		"iS": 1659,
+		"iS": 80014,
 		"oA": 0,
-		"oAP": "\/img\/bg-tile-for-dimension-calculator.png",
+		"oAP": "\/img\/16-9-dimensions-calculator.png",
 		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
+		"oIPL": 0,
+		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
